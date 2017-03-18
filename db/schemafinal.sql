@@ -4,15 +4,12 @@ USE read_db;
 /*users*/
 CREATE TABLE users
 (
-	id int NOT NULL AUTO_INCREMENT,
-	email varchar(60) NOT NULL,
+  id int NOT NULL AUTO_INCREMENT,
+  username varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
   password_hash varchar(255) NOT NULL,
-  facebook_id varchar(255),
-	first_name varchar(40) NOT NULL,
-	last_name varchar(40) NOT NULL,
-  type varchar(1) NOT NULL,
-  -- S-student, T-teacher, P-parent
-	PRIMARY KEY (id)
+  usertype varchar(1) NOT NULL,
+  PRIMARY KEY (id)
 );
 
 /*books*/

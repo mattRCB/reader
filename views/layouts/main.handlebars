@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Go Read" content="">
     <meta name="Goodfellas" content="">
-
+    <!-- jQuery -->
+    <!-- <script src="/assets/lib/jquery/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8" crossorigin="anonymous"></script>
     <title>GO Read!</title>
 
     <!-- Bootstrap Core CSS -->
@@ -26,6 +28,7 @@
 
     <!-- Theme CSS -->
     <link href="/assets/css/new-age.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,67 +40,69 @@
 </head>
 
 <body id="page-top">
+    {{#ifNotEqual usertype "T"}}
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    
+                    {{#if logged_in}}
+                      <a class="navbar-brand page-scroll" href="#page-top">GO Read!</a>
+                      <a class="navbar-brand page-scroll" href="/users/sign-out">Sign Out</a>
+                    {{else}}
+                      <a class="navbar-brand page-scroll" href="/users/sign-in">Sign In</a>
+                      <a class="navbar-brand page-scroll" href="/users/new">Register</a>
+                    {{/if}}
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                
-                {{#if logged_in}}
-                  <a class="navbar-brand page-scroll" href="#page-top">GO Read!</a>
-                  <a class="navbar-brand page-scroll" href="/users/sign-out">Sign Out</a>
-                {{else}}
-                  <a class="navbar-brand page-scroll" href="/users/sign-in">Sign In</a>
-                  <a class="navbar-brand page-scroll" href="/users/new">Register</a>
-                {{/if}}
 
+                </div>
 
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#download">My Books</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#features">My Progress</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
+            <!-- /.container-fluid -->
+        </nav>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+        {{{ body }}}
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2016 Start Bootstrap. All Rights Reserved.</p>
+                <ul class="list-inline">
                     <li>
-                        <a class="page-scroll" href="#download">My Books</a>
+                        <a href="#">Privacy</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#features">My Progress</a>
+                        <a href="#">Terms</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a href="#">FAQ</a>
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+        </footer>
+    {{else}}
 
-    {{{ body }}}
+        {{{ body }}}
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2016 Start Bootstrap. All Rights Reserved.</p>
-            <ul class="list-inline">
-                <li>
-                    <a href="#">Privacy</a>
-                </li>
-                <li>
-                    <a href="#">Terms</a>
-                </li>
-                <li>
-                    <a href="#">FAQ</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+    {{/ifNotEqual}}
 
-    <!-- jQuery -->
-    <!-- <script src="/assets/lib/jquery/jquery.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -107,6 +112,7 @@
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/new-age.min.js"></script>
+    <script src="/assets/js/client.js"></script>
 
 </body>
 

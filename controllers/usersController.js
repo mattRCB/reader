@@ -10,7 +10,9 @@ router.get('/new', function(req,res) {
 });
 
 router.get('/sign-in', function(req,res) {
-  res.render('users/sign_in');
+
+    res.render('users/sign_in');
+  // }
 });
 
 router.get('/sign-out', function(req,res) {
@@ -38,7 +40,24 @@ router.post('/login', function(req, res) {
               req.session.usertype = response[0].usertype;
               req.session.username = response[0].username;
 
-              res.redirect('/readers');
+              // console.log(response[0].usertype);
+              // console.log(req.session);
+
+              
+
+                switch (response[0].usertype){
+                  case 'R':
+                    res.json(req.session);
+                    // res.redirect('/readers');
+                    break;
+                  case 'P':
+                    res.redirect('/readers');
+                    break;
+                  case 'T':
+                    res.json(req.session);
+                    // res.redirect('/teachers');
+                    break;
+                }
             }else{
               res.redirect('/users/sign-in')
             }
@@ -50,7 +69,7 @@ router.post('/create', function(req,res) {
   var query = "SELECT * FROM users WHERE email = ?"
 
   connection.query(query, [ req.body.email ], function(err, response) {
-    console.log(response)
+    // console.log(response)
     if (response.length > 0) {
       res.send('An email or username already exists for this account')
     }else{
@@ -74,6 +93,9 @@ router.post('/create', function(req,res) {
                 req.session.user_email = response[0].email;
                 req.session.usertype = response[0].usertype;
 
+                // console.log(response[0].usertype);
+                // console.log(req.session);
+
                 switch (response[0].usertype){
                   case 'R':
                     res.redirect('/readers');
@@ -82,7 +104,7 @@ router.post('/create', function(req,res) {
                     res.redirect('/readers');
                     break;
                   case 'T':
-                    res.redirect('/readers');
+                    res.redirect('/teachers');
                     break;
                 }
                 

@@ -1,0 +1,23 @@
+
+<!-- 	<header>
+		<div class="container">
+
+		</div>
+	</header> -->
+
+	<select id="classes-menu">
+		{{#each class}}
+			<option value="">{{ this }}</option>
+		{{/each}}
+	</select>
+
+	<div id="students-list">
+		{{#each students}}
+			<div id="student-item">
+				{{this}}
+			</div>
+		{{/each}}
+	</div>
+
+
+	<script src="/assets/js/teacher.js" type="text/javascript" charset="utf-8"></script>

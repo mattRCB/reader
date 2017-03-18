@@ -1,13 +1,13 @@
 
 -- Add users
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("wahlers1@gmail.com", "password", "Chris", "Wahlers", "P");
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("kwahlers@gmail.com", "password", "Kyle", "Wahlers", "S");
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("cwahlers51@gmail.com", "password", "Cole", "Wahlers", "S");
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("cwahlers29@gmail.com", "password", "Carson", "Wahlers", "S");
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("cwahlers13@gmail.com", "password", "Carter", "Wahlers", "S");
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("chrobot@gmail.com", "password", "M", "Chrobot", "T");
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("fischer@gmail.com", "password", "C", "Fischer", "T");
-INSERT INTO users (email, password_hash, first_name, last_name, type) VALUES ("massa@gmail.com", "password", "L", "Massa", "T");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("wahlers1@gmail.com", "password", "Chris Wahlers", "P");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("kwahlers@gmail.com", "password", "Kyle Wahlers", "S");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("cwahlers51@gmail.com", "password", "Cole Wahlers", "S");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("cwahlers29@gmail.com", "password", "Carson Wahlers", "S");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("cwahlers13@gmail.com", "password", "Carter Wahlers", "S");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("chrobot@gmail.com", "password", "M Chrobot", "T");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("fischer@gmail.com", "password", "C Fischer", "T");
+INSERT INTO users (email, password_hash, username, usertype) VALUES ("massa@gmail.com", "password", "L Massa", "T");
 
 -- Add books
 INSERT INTO books (title, author, genre, isbn) VALUES ("My Life as a Gamer", "Janet Tashjian","Childrens", "978-0-8050-9851-8" );
@@ -23,6 +23,7 @@ INSERT INTO books (title, author, genre, isbn) VALUES ("Amulet, Escape from Luci
 INSERT INTO books (title, author, genre, isbn) VALUES ("Amulet, Firelight", "Kazu Kibuishi", "Childrens", "978-0-545-43316-7");
 INSERT INTO books (title, author, genre, isbn) VALUES ("Wayne Gretzky", "Matt Doeden", "Biography", "978-0-7607-9170-7");
 
+
   -- Add classes
 INSERT INTO classes (name, teacher_id, grade) VALUES ("Mrs. Chrobot's Fifth Grade", 6, "5");
 INSERT INTO classes (name, teacher_id, grade) VALUES ("Mrs. Fischer's Fifth Grade", 7, "5");
@@ -33,6 +34,7 @@ INSERT INTO classes (name, teacher_id, grade) VALUES ("Mrs. Massa's Fifth Grade"
 INSERT INTO class_students (class_id, student_id) VALUES (1,5);
 INSERT INTO class_students (class_id, student_id) VALUES (1,3);
 INSERT INTO class_students (class_id, student_id) VALUES (1,2);
+
 
 -- Assign students to parent
 INSERT INTO parent_students (parent_id, student_id) VALUES (1, 2);
@@ -58,3 +60,5 @@ INSERT INTO logs (user_id, book_id, created, time_lapsed) VALUES (5,1, "2017-01-
 INSERT INTO logs (user_id, book_id, created, time_lapsed) VALUES (5,1, "2017-01-15", 0.75);
 INSERT INTO logs (user_id, book_id, created, time_lapsed) VALUES (5,2, "2017-02-01", 0.5);
 INSERT INTO logs (user_id, book_id, created, time_lapsed) VALUES (5,2, "2017-02-03", 1.0);
+
+
